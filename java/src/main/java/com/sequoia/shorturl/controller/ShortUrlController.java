@@ -1,8 +1,8 @@
 package com.sequoia.shorturl.controller;
 
 import com.sequoia.shorturl.util.UrlUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+/*import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;*/
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
  * @auther: usr1999
  * @create: 2021/7/29
  */
-@Api(value = "Short url service")
+//@Api(value = "Short url service")
 @RestController
 @RequestMapping("/shortUrlApi")
 public class ShortUrlController {
@@ -34,7 +34,7 @@ public class ShortUrlController {
      * @param longUrl: 长域名
      * @return
      */
-    @ApiOperation(value = "Get a short url based on a long url", notes = "")
+    //@ApiOperation(value = "Get a short url based on a long url", notes = "")
     @RequestMapping("/getShortUrl")
     public String getShortUrl(String longUrl) {
         try {
@@ -74,7 +74,7 @@ public class ShortUrlController {
      * @param shortUrl
      * @return
      */
-    @ApiOperation(value = "Get a long url based on a short url")
+    //@ApiOperation(value = "Get a long url based on a short url")
     @RequestMapping("/getLongUrl")
     public String getLongUrl(String shortUrl) {
         try {

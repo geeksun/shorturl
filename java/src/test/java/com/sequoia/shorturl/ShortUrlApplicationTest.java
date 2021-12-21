@@ -13,8 +13,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+//@SpringBootTest
+//@AutoConfigureMockMvc
 class ShortUrlApplicationTest {
 
     @BeforeAll
@@ -22,7 +22,7 @@ class ShortUrlApplicationTest {
 
     }
 
-    @Autowired
+    //@Autowired
     private MockMvc mockMvc;
 
     void invoke(String url, String paramName, String value) throws Exception {
