@@ -20,6 +20,7 @@
         <aspectj.version>1.9.8.M1</aspectj.version>
         <poi.version>5.1.0</poi.version>
         <mysql.version>8.0.27</mysql.version>
+        <drools.version>7.63.0.Final</drools.version>
 
     </properties>
     <dependencies>
@@ -124,11 +125,25 @@
             <version>${jacoco.version}</version>
         </dependency>
 
+        <!-- groovy -->
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>2.4.12</version>
         </dependency>
+
+        <!--  drools-compiler -->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-compiler</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-mvel</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+
 
     </dependencies>
 

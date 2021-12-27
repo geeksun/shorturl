@@ -1,0 +1,7 @@
+package rules
+import com.sequoia.shorturl.domain.Product
+//当商品类型是DIAMOND时,打折为15%
+rule Discount4Diamond  when productObject:Product(type == Product.DIAMOND) then productObject.setDiscount(15); end
+//当商品类型是GOLD时，打折为25%
+rule Discount4Gold when  productObject: Product(type == Product.GOLD) then  productObject.setDiscount(25); end
+
