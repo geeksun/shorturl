@@ -1,7 +1,9 @@
 <?xml  version="1.0" encoding="UTF-8"?><kmodule xmlns="http://www.drools.org/xsd/kmodule">
-
+    <!--  packages属性是src/main/resources目录下文件夹的包路径,可以定义多个包，逗号分隔 -->
     <kbase name="rules" packages="rules">
+        <!-- 可以配置多个ksession -->
         <ksession name="ksession-rule"/>
     </kbase>
+
 </kmodule>
 
