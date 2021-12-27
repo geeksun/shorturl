@@ -41,7 +41,7 @@ public class DemoController {
     public String query() {
         //User user = new User("aaa", false, "赵六", 18, "123456");
         try {
-            List<User> users = this.mongoTemplate.findAll(User.class);
+            List<User> users = mongoTemplate.findAll(User.class);
             System.out.println(users);
         } catch (Exception e) {
             e.printStackTrace();
