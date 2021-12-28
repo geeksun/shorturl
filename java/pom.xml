@@ -21,7 +21,7 @@
         <poi.version>5.1.0</poi.version>
         <mysql.version>8.0.27</mysql.version>
         <drools.version>7.63.0.Final</drools.version>
-
+        <easy-rules.version>4.1.0</easy-rules.version>
     </properties>
     <dependencies>
         <dependency>
@@ -142,6 +142,20 @@
             <groupId>org.drools</groupId>
             <artifactId>drools-mvel</artifactId>
             <version>${drools.version}</version>
+        </dependency>
+
+        <!-- easy-rules -->
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-rules-core</artifactId>
+            <version>${easy-rules.version}</version>
+        </dependency>
+
+        <!-- aviator -->
+        <dependency>
+            <groupId>com.googlecode.aviator</groupId>
+            <artifactId>aviator</artifactId>
+            <version>5.3.0</version>
         </dependency>
 
 
