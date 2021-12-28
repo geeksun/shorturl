@@ -1,7 +1,5 @@
 package com.sequoia.shorturl;
 
-import com.sequoia.shorturl.domain.User;
-
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -17,7 +15,6 @@ import java.util.Map;
 public class GroovyTest {
 
     /*
-     *
      * @params condition  从数据库中读出来的条件表达式
      */
     private static Boolean validateCondition() {
