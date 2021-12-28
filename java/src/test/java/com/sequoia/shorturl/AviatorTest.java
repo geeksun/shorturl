@@ -2,6 +2,10 @@ package com.sequoia.shorturl;
 
 import com.googlecode.aviator.AviatorEvaluator;
 import com.googlecode.aviator.Expression;
+import com.googlecode.aviator.runtime.function.AbstractFunction;
+import com.googlecode.aviator.runtime.function.FunctionUtils;
+import com.googlecode.aviator.runtime.type.AviatorDouble;
+import com.googlecode.aviator.runtime.type.AviatorObject;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -9,10 +13,29 @@ import java.util.Map;
 
 /**
  * @Description:
+ * google aviator：轻量级Java公式引擎
+ * https://blog.csdn.net/liubenlong007/article/details/107043615
  * @Author: jzq
  * @Create: 2021/12/28
  */
 public class AviatorTest {
+
+    /**
+     * 自定义函数：只要implements AviatorFunction接口, 并注册到AviatorEvaluator即可使用.
+     */
+    class AddFunction extends AbstractFunction {
+
+        @Override
+        public AviatorObject call(Map<String, Object> env, AviatorObject arg1, AviatorObject arg2) {
+            Number left = FunctionUtils.getNumberValue(arg1, env);
+            Number right = FunctionUtils.getNumberValue(arg2, env);
+            return new AviatorDouble(left.doubleValue() + right.doubleValue());
+        }
+
+        public String getName() {
+            return "add";
+        }
+    }
 
     @Test
     public void test() {
@@ -47,6 +70,18 @@ public class AviatorTest {
         env.put("c", -199.100);
         Boolean boolResult = (Boolean) compiledExp.execute(env);
         System.out.println(boolResult);
+
+
+        length = (Long)AviatorEvaluator.execute("string.length('testdemo')");
+        System.out.println("len: "+length);
+
+        // 注册自定义函数
+        AviatorEvaluator.addFunction(new AddFunction());
+        System.out.println(AviatorEvaluator.execute("add(1, 2)"));           // 3.0
+        System.out.println(AviatorEvaluator.execute("add(add(1, 2), 100)")); // 103.0
+
+        // 移除自定义函数
+        //AviatorEvaluator.removeFunction("add");
 
 
 
