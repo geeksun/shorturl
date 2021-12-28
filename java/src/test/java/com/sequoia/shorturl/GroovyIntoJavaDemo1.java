@@ -71,8 +71,11 @@ public class GroovyIntoJavaDemo1 {
 
         long end2 = System.currentTimeMillis()-start2;
 
+        // 时间最多
         System.out.println(" GroovyClassLoader时间："+ end );
+        // 和GroovyScriptEngine时间差不多
         System.out.println(" GroovyShell时间："+ end1 );
+        // 时间最少
         System.out.println(" GroovyScriptEngine时间："+ end2 );
 
     }
