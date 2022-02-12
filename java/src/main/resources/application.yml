@@ -4,10 +4,8 @@ shortUrlPrefix: http://a.cn/
 # DataSource Config
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    schema: classpath:db/schema-h2.sql
-    data: classpath:db/data-h2.sql
-    url: jdbc:h2:mem:demo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&useSSL=false&characterEncoding=UTF8
     username: root
     password: 123456
   data:
