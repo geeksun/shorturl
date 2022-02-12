@@ -4,9 +4,9 @@ import com.sequoia.shorturl.mapper.UserMapper;
 import com.sequoia.shorturl.po.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ import java.util.List;
 @SpringBootTest
 public class SampleTest {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     @Test
