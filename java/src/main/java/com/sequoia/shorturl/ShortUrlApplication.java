@@ -1,5 +1,6 @@
 package com.sequoia.shorturl;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 映射数据存储在 JVM 内存即可，防止内存溢出；
  */
 @SpringBootApplication
+@MapperScan("com.sequoia.shorturl.mapper")
 public class ShortUrlApplication {
 
     public static void main(String[] args) {

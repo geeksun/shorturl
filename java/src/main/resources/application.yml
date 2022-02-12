@@ -1,0 +1,23 @@
+shortUrlPrefix: http://a.cn/
+  #spring.main.web-application-type=reactive
+
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    schema: classpath:db/schema-h2.sql
+    data: classpath:db/data-h2.sql
+    url: jdbc:h2:mem:demo
+    username: root
+    password: 123456
+  data:
+    mongodb:
+      uri: mongodb://192.168.10.236:27017/short-url
+
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+

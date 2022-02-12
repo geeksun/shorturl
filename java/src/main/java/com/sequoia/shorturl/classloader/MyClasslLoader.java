@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 /**
- * @Description: 自定义 Java类加载器来实现Java 类的热加载
+ * @Description: 自定义 Java类加载器来实现 Java 类的热加载
  * @Author: usr1999
  * @Create: 2021/9/3
  */

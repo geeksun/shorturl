@@ -37,11 +37,45 @@ public class AviatorTest {
         }
     }
 
+    /**
+     * 编译表达式和未编译表达式性能测试
+     * 
+     */
+    @Test
+    public void test8() {
+        String expression = "a * (b + c)";
+        Map<String, Object> env = new HashMap<>();
+        env.put("a", 3.32);
+        env.put("b", 234);
+        env.put("c", 324.2);
+        //编译表达式
+        Expression compliedExp = AviatorEvaluator.compile(expression);
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++) {
+            Double result = (Double) compliedExp.execute(env);
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("预编译的耗时为：" + (endTime - startTime));
+        long startTime2 = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++) {
+            Double result = (Double) AviatorEvaluator.execute(expression, env);
+        }
+        long endTime2 = System.currentTimeMillis();
+        System.out.println("无编译的耗时为：" + (endTime2 - startTime2));
+    }
+
     @Test
     public void test() {
         Long result = (Long) AviatorEvaluator.execute("1+2+3+4");
         System.out.println("caculate result: " + result);
 
+        Boolean booResult = (Boolean)AviatorEvaluator.execute("3 > 1 && 2 != 4 || true");
+        System.out.println(booResult);
+
+
+        /**
+         * 往表达式传入值
+         */
         String name = "唐简";
         Map<String,Object> env = new HashMap<>();
         env.put("name", name);
@@ -55,14 +89,32 @@ public class AviatorTest {
         Long length = (Long)AviatorEvaluator.execute("string.length(str)", env);
         System.out.println("length: "+length);
 
-        // compile 用法
+        /**
+         * 三元表达式
+         */
+        String result2 = (String)AviatorEvaluator.execute("3 > 0 ? 'yes' : 'no'");
+        System.out.println(result2);
+
+        // compile 用法, 编译表达式可以提高性能
         String expression = "a-(b-c)>100";
         Expression compiledExp = AviatorEvaluator.compile(expression);
         // 缓存本次编译的结果
         //Expression compiledExp = AviatorEvaluator.compile(expression,true);
         // 使缓存失效
         //AviatorEvaluator.invalidateCache(String expression);
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++) {
+            Double dResult = (Double) compiledExp.execute(env);
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("预编译的耗时为：" + (endTime - startTime));
 
+        long startTime2 = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++) {
+            Double dResult2 = (Double) AviatorEvaluator.execute(expression, env);
+        }
+        long endTime2 = System.currentTimeMillis();
+        System.out.println("无编译的耗时为：" + (endTime2 - startTime2));
 
         //Map<String, Object> env = new HashMap<>();
         env.put("a", 100.3);

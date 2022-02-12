@@ -5,15 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.1</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.6.3</version>
+        <relativePath/>
     </parent>
+
     <groupId>com.sequoia</groupId>
     <artifactId>short-url</artifactId>
     <version>0.1-SNAPSHOT</version>
     <name>short-url</name>
     <packaging>jar</packaging>
     <description>Demo project for Short Url</description>
+
     <properties>
         <java.version>1.8</java.version>
         <jacoco.version>0.8.7</jacoco.version>
@@ -22,7 +24,9 @@
         <mysql.version>8.0.27</mysql.version>
         <drools.version>7.63.0.Final</drools.version>
         <easy-rules.version>4.1.0</easy-rules.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -33,6 +37,18 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
+        </dependency>
+
+        <!-- mybatis-plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- aspectj -->
@@ -150,6 +166,16 @@
             <artifactId>easy-rules-core</artifactId>
             <version>${easy-rules.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-rules-support</artifactId>
+            <version>${easy-rules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-rules-mvel</artifactId>
+            <version>${easy-rules.version}</version>
+        </dependency>
 
         <!-- aviator -->
         <dependency>
@@ -158,6 +184,17 @@
             <version>5.3.0</version>
         </dependency>
 
+        <!-- JSR303 validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.1.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
 
     </dependencies>
 

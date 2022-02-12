@@ -7,7 +7,7 @@ import org.jeasy.rules.annotation.Fact;
 import org.jeasy.rules.annotation.Rule;
 
 /**
- * @Description: easy-rules demo
+ * @Description: Easy-rules demo
  * @Author: jzq
  * @Create: 2021/12/28
  */
