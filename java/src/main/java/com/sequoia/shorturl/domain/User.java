@@ -35,6 +35,8 @@ public class User {
     @Email(message = "Email should be valid")
     private String email;
 
+    private String address;
+
     public User(String name){
         this.name = name;
     }

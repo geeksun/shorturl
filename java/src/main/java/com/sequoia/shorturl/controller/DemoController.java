@@ -30,7 +30,7 @@ public class DemoController {
     @Operation(summary = "foo", description = "addMongo")
     @RequestMapping("/addMongo")
     public String addMongo() {
-        User user = new User("test", true, "Alan", 23, "233");
+        User user = new User("test", true, "Alan", 23, "233", "sz");
         mongoTemplate.insert(user);
 
         return "ok";
