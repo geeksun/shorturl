@@ -42,7 +42,7 @@ public class TestController {
         throw new DefinitionException("400", "我出错了");
     }
 
-    @RequestMapping("/tra")
+    @RequestMapping("/test")
     public String trans() {
         userService.foo();
         return "ok";

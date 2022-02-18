@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         userMapper.insert(user);
 
         if (true) {
-            throw new RuntimeException("save 抛异常了");
+            throw new RuntimeException("Save 抛异常了");
         }
     }
 
