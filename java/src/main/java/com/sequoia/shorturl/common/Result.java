@@ -11,16 +11,14 @@ import lombok.Data;
  */
 @Data
 public class Result<T> {
-    //是否成功
+
     private Boolean success;
-    String code;
-    String msg;
+    private String code;
+    private String msg;
 
-    //数据
+    // 数据
     private T data;
-    public Result() {
-
-    }
+    public Result() {}
 
     public Result(String code, String msg) {
         this.code = code;
