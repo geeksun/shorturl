@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService {
         if (true) {
             throw new RuntimeException("Save 抛异常了");
         }
+
     }
 
 }

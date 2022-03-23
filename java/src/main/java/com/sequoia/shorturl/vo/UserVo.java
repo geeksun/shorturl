@@ -22,4 +22,5 @@ public class UserVo {
 
     private String gender;
 
+    private String time;
 }

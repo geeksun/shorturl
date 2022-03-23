@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.*;
+import java.util.Date;
 
 /**
  * @Description:  JSR 380 validation framework.
@@ -36,6 +37,8 @@ public class User {
     private String email;
 
     private String address;
+
+    private Date time;
 
     public User(String name){
         this.name = name;

@@ -4,6 +4,7 @@ import com.sequoia.shorturl.domain.User;
 import com.sequoia.shorturl.util.BeanUtils;
 import com.sequoia.shorturl.vo.UserVo;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,6 +25,7 @@ public class BeanTest {
         u.setAge(20);
         u.setName("kitty");
         u.setAddress("sz");
+        u.setTime(new Date());
         list.add(u);
 
         List<UserVo> voList = new ArrayList<>();
