@@ -38,7 +38,7 @@ public class ShortUrlController {
     @RequestMapping("/getShortUrl")
     public String getShortUrl(String longUrl) {
         try {
-            if(StringUtils.isEmpty(longUrl)) {
+            if(!StringUtils.hasLength(longUrl)) {
                 return "请输入有效的 URL";
             }
 
