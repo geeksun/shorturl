@@ -12,10 +12,34 @@ spring:
     mongodb:
       uri: mongodb://192.168.10.236:27017/short-url
 
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    #最大链接数
+    max-connections: 6500
+    #最大等待队列长度
+    accept-count: 1000
+    #请请求体最大长度kb
+    #max-http-post-size: 2097152
+    #链接建立超时时间
+    connection-timeout: 20000
+    threads:
+      max: 1000
+      min-spare: 50
+  #服务http端口
+  port: 8080
+  servlet:
+    #访问根路径
+    context-path: /
+  #请求头最大长度kb
+  max-http-header-size: 1048576
+
 
 springdoc:
   api-docs:
     enabled: true
   swagger-ui:
     path: /swagger-ui.html
+
 

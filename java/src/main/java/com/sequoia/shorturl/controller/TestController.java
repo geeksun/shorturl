@@ -37,14 +37,18 @@ public class TestController {
         return "ok";
     }
 
-    @RequestMapping("/getDeException")
-    public Result DeException() {
+    /**
+     * @return 自定义异常
+     */
+    @RequestMapping("/getDefineException")
+    public Result getDefineException() {
         throw new DefinitionException("400", "我出错了");
     }
 
     @RequestMapping("/test")
-    public String trans() {
-        userService.foo();
+    public String test() {
+        // userService.foo();
+
         return "ok";
     }
 
