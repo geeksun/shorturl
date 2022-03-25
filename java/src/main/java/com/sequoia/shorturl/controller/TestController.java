@@ -6,8 +6,10 @@ import com.sequoia.shorturl.exception.DefinitionException;
 /*import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;*/
 import com.sequoia.shorturl.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 //@Api(value = "Short url service")
+@Slf4j
 @RestController
 @RequestMapping("/test")
 public class TestController {
@@ -48,6 +51,22 @@ public class TestController {
     @RequestMapping("/test")
     public String test() {
         // userService.foo();
+
+        try {
+            StopWatch sw = new StopWatch();
+            sw.start("A");
+            Thread.sleep(500);
+            sw.stop();
+            sw.start("B");
+            Thread.sleep(300);
+            sw.stop();
+            sw.start("C");
+            Thread.sleep(200);
+            sw.stop();
+            log.info("各方法耗时: {}", sw.prettyPrint());
+        } catch (Exception e){
+            log.error("方法执行异常", e);
+        }
 
         return "ok";
     }
