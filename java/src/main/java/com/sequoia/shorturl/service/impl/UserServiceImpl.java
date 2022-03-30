@@ -5,6 +5,7 @@ import com.sequoia.shorturl.po.User;
 import com.sequoia.shorturl.service.UserService;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,9 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
+    @Resource
+    private ThreadPoolTaskExecutor userMQThreadPool;
+
     @Transactional
     @Override
     public void foo() {
@@ -34,6 +38,18 @@ public class UserServiceImpl implements UserService {
         } /*catch (ExecutionException e) {
             e.printStackTrace();
         }*/
+
+        userMQThreadPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                    System.out.println("foo.threadName=" + Thread.currentThread().getName());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         User user = new User();
         user.setAge(18);
