@@ -1,5 +1,7 @@
 package com.sequoia.shorturl.service;
 
+import java.util.concurrent.Future;
+
 /**
  * @Description:
  * @Author: jzq
@@ -8,5 +10,7 @@ package com.sequoia.shorturl.service;
 public interface UserService {
 
     void foo();
+
+    Future<String> testAsync() throws InterruptedException;
 
 }
