@@ -1,8 +1,11 @@
 package com.sequoia.shorturl;
 
+import com.alibaba.fastjson.JSON;
+import com.sequoia.shorturl.po.User;
 import com.sequoia.shorturl.util.MailUtil;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.util.StopWatch;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -61,8 +64,57 @@ public class StringTest {
                 ex.printStackTrace();
             }
             System.out.println("----------------");
-
         }
+    }
+
+    @Test
+    public void json() {
+
+    }
+
+    static void test() throws Exception {
+        System.out.println("111");
+        if(2>1) {
+            throw new Exception("test err");
+        }
+        System.out.println(222);
+    }
+
+    static void test2() throws Exception {
+        System.out.println("123");
+        try {
+            if(8>7){
+                throw new RuntimeException("testok");
+            }
+        } catch (Exception e) {
+            System.out.println("error");
+            e.printStackTrace();
+        }
+
+        System.out.println("7777");
+        test();
+        System.out.println("8888");
+    }
+
+    public static void main(String[] args) {
+        try {
+            test2();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        for(int i=0;i<1;i++) {
+            User loginUser = new User();
+            loginUser.setId(910123493241l);
+            loginUser.setName("testabc123456");
+            loginUser.setAge(72);
+            loginUser.setEmail("test_waveop@163.com");
+            String str = JSON.toJSONString(loginUser);
+            System.out.println(str);
+        }
+        stopWatch.stop();
+        System.out.println(stopWatch.getTotalTimeMillis());
     }
 
 }
